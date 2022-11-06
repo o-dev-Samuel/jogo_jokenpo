@@ -1,0 +1,67 @@
+*{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+}
+
+body{
+     background-color: rgb(11, 12, 31);
+}
+
+.titulo{
+     color: white;
+     text-align: center;
+     margin-top: 5rem;
+     font-size: 3rem;
+}
+
+#placar{
+     margin-inline: auto;
+     display: flex;
+     justify-content: center;
+     width: 70%;
+     gap: 2rem;
+     margin-top: 2rem;
+     font-size: 5rem;
+}
+
+.cardplacar{
+     width: 6rem;
+     height: 6rem;
+     background-color: #fff;
+     text-align: center;
+     border-radius: 1rem;
+}
+
+#container{
+     margin-top: 2rem;
+     margin-inline: auto;
+     width: 100%;
+     max-width: 50rem;
+     display: flex;
+     justify-content: space-around;
+}
+
+.cardjogador{
+     width: 45%;
+     background-color: #fff;
+     text-align: center;
+     border-radius: 1rem;
+     transition: 300ms;
+}
+
+#escolhas{
+     margin-top: 1rem;
+     margin-inline: auto;
+     width: 100%;
+     max-width: 50rem;
+     display: flex;
+     justify-content: center;
+     gap: 1rem;
+}
+
+.btns{
+     padding: 3px;
+     border-radius: 5px;
+     width: 5rem;
+}
