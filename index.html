@@ -10,25 +10,11 @@
 </head>
 <body>
     <h1 class="titulo">Pedra, Papel ou Tesoura</h1>
-    <div id="placar">
-        <div id="ptsusuario" class="cardplacar">1</div>
-        <div id="versus" class="cardplacar">x</div>
-        <div id="ptsmaquina" class="cardplacar">3</div>
-    </div>
-    <div id="container">
-        <div id="usuario" class="cardjogador">
-            <h3>Você</h3>
-            <img id="imgusuario">
-        </div>
-        <div id="maquina" class="cardjogador">
-            <h3>Máquina</h3>
-            <img id="imgmaquina">
-        </div>
-    </div>
-    <div id="escolhas">
-        <input type="button" value="Pedra" id="btnpedra"  class="btns">
-        <input type="button" value="Papel" id="btnpapel" class="btns">
-        <input type="button" value="Tesoura" id="btntesoura" class="btns">
-    </div>
+    <form>
+        <h1>Digite seu nick para Jogar</h1>
+        <input type="text" name="nome" id="nomeusuario" required>
+        <input type="button" value="Jogar" class="btns" id="btnjogar">
+
+    </form>
 </body>
 </html>
