@@ -100,6 +100,7 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
 
         // Jogador escolhe pedra
         btnPedra.addEventListener('click', () => {
+            divEscolhas.style.display = 'none'
             escolhaJogador = 1;
             imgUsuario.setAttribute('src', './img/pedra.jpg')
             setTimeout(ponto, 1000)
@@ -107,6 +108,7 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
 
         // Jogador escolhe papel
         btnPapel.addEventListener('click', () => {
+            divEscolhas.style.display = 'none'
             escolhaJogador = 2;
             imgUsuario.setAttribute('src', './img/papel.jpg')
             setTimeout(ponto, 1000)
@@ -114,6 +116,7 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
 
         // Jogador escolhe tesoura
         btnTesoura.addEventListener('click', () => {
+            divEscolhas.style.display = 'none'
             escolhaJogador = 3;
             imgUsuario.setAttribute('src', './img/tesoura.png')
             setTimeout(ponto, 1000)
@@ -122,11 +125,13 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
 
         // Verificando o pontuador
         function ponto() {
+
             // Criando a escolha do computador
             function numAleatorio(min, max) {
                 return Math.floor(Math.random() * (max - min) + min);
             }
             var escolhaComputador = numAleatorio(1, 4)
+            
 
             // Trocando a img da maquina
             if (escolhaComputador == 1) {
@@ -217,17 +222,20 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
             setTimeout(() => {
                 imgMaquina.removeAttribute('src')
                 imgUsuario.removeAttribute('src')
+                
                 if (pontosUsuario == 3) {
                     alertaPonto.style.display = 'block'
-                    alertaPonto.innerText = `Parabén ${inputNome.value}, você ganhou`
+                    alertaPonto.innerText = `Parabéns ${inputNome.value}, você ganhou!!`
                     setTimeout(() => location.reload(), 3000)
 
                 } else if (pontosMaquina == 3) {
                     alertaPonto.style.display = 'block'
-                    alertaPonto.innerText = `A máquina ganhou! ;()`
+                    alertaPonto.innerText = `A máquina ganhou! ;(`
                     setTimeout(() => location.reload(), 3000)
 
                 }
+
+                divEscolhas.style.display = 'block'
             }, 3000)
 
         }
