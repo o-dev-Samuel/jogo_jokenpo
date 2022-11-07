@@ -31,7 +31,7 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
         divPtsMaquina.innerText = '0'
         divPlacar.appendChild(divPtsMaquina)
 
-        // Criando a div Conatiner
+        // Criando a div Container
         let divContainer = document.createElement('div')
         divContainer.setAttribute('id', 'container')
         document.body.appendChild(divContainer)
@@ -44,6 +44,7 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
         let nomeUsuario = document.createElement('h3')
         nomeUsuario.innerText = inputNome.value
         let imgUsuario = document.createElement('img')
+        imgUsuario.setAttribute('class', 'img')
         divUsuario.appendChild(nomeUsuario)
         divUsuario.appendChild(imgUsuario)
 
@@ -56,6 +57,7 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
         let nomeMaquina = document.createElement('h3')
         nomeMaquina.innerText = 'Máquina'
         let imgMaquina = document.createElement('img')
+        imgMaquina.setAttribute('class', 'img')
         divMaquina.appendChild(nomeMaquina)
         divMaquina.appendChild(imgMaquina)
 
@@ -86,10 +88,14 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
         btnTesoura.setAttribute('class', 'btns')
         divEscolhas.appendChild(btnTesoura)
 
+        // Alerta de ponto e vitória
+        let alertaPonto = document.createElement('a')
+        alertaPonto.setAttribute('id', 'alertaponto')
+        document.body.appendChild(alertaPonto)
+
         // Variaveis de pontuação
         let pontosUsuario = 0;
         let pontosMaquina = 0;
-        let vencedor = false;
         let escolhaJogador = null;
 
         // Jogador escolhe pedra
@@ -140,14 +146,23 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
                         //computador ganha
                         pontosMaquina++;
                         divPtsMaquina.innerText = pontosMaquina
+                        alertaPonto.innerText = 'Máquina pontuou!!'
+                        alertaPonto.style.display = 'block'
+                        setTimeout(() => alertaPonto.style.display = 'none', 3000)
                         break;
                     case 3:
                         // Usuario ganha
                         pontosUsuario++;
                         divPtsUsuario.innerText = pontosUsuario
+                        alertaPonto.innerText = 'Você pontuou!!'
+                        alertaPonto.style.display = 'block'
+                        setTimeout(() => alertaPonto.style.display = 'none', 3000)
                         break;
                     default:
-                    //empate
+                        //empate
+                        alertaPonto.innerText = 'Empatou!!'
+                        alertaPonto.style.display = 'block'
+                        setTimeout(() => alertaPonto.style.display = 'none', 3000)
                 }
             } else if (escolhaJogador == 2) {
                 switch (escolhaComputador) {
@@ -155,15 +170,23 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
                         //usuario ganha
                         pontosUsuario++;
                         divPtsUsuario.innerText = pontosUsuario
+                        alertaPonto.innerText = 'Você pontuou!!'
+                        alertaPonto.style.display = 'block'
+                        setTimeout(() => alertaPonto.style.display = 'none', 3000)
                         break;
                     case 3:
                         //computador ganha
                         pontosMaquina++;
                         divPtsMaquina.innerText = pontosMaquina
+                        alertaPonto.innerText = 'Máquina pontuou!!'
+                        alertaPonto.style.display = 'block'
+                        setTimeout(() => alertaPonto.style.display = 'none', 3000)
                         break;
                     default:
-                    // empate
-
+                        // empate
+                        alertaPonto.innerText = 'Empatou!!'
+                        alertaPonto.style.display = 'block'
+                        setTimeout(() => alertaPonto.style.display = 'none', 3000)
                 }
             } if (escolhaJogador == 3) {
                 switch (escolhaComputador) {
@@ -171,15 +194,23 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
                         // usuario ganha
                         pontosUsuario++;
                         divPtsUsuario.innerText = pontosUsuario
+                        alertaPonto.innerText = 'Você pontuou!!'
+                        alertaPonto.style.display = 'block'
+                        setTimeout(() => alertaPonto.style.display = 'none', 3000)
                         break;
                     case 1:
                         // computador ganha
                         pontosMaquina++;
                         divPtsMaquina.innerText = pontosMaquina
+                        alertaPonto.innerText = 'Máquina pontuou!!'
+                        alertaPonto.style.display = 'block'
+                        setTimeout(() => alertaPonto.style.display = 'none', 3000)
                         break;
                     default:
-                    // empate
-
+                        // empate
+                        alertaPonto.innerText = 'Empatou!!'
+                        alertaPonto.style.display = 'block'
+                        setTimeout(() => alertaPonto.style.display = 'none', 3000)
                 }
             }
             // Removendo as imgs
@@ -187,12 +218,14 @@ document.getElementById('btnjogar').addEventListener('click', function jogar() {
                 imgMaquina.removeAttribute('src')
                 imgUsuario.removeAttribute('src')
                 if (pontosUsuario == 3) {
-                    vencedor = true;
-                    location.reload()
+                    alertaPonto.style.display = 'block'
+                    alertaPonto.innerText = `Parabén ${inputNome.value}, você ganhou`
+                    setTimeout(() => location.reload(), 3000)
 
                 } else if (pontosMaquina == 3) {
-                    vencedor = true;
-                    location.reload()
+                    alertaPonto.style.display = 'block'
+                    alertaPonto.innerText = `A máquina ganhou! ;()`
+                    setTimeout(() => location.reload(), 3000)
 
                 }
             }, 3000)
